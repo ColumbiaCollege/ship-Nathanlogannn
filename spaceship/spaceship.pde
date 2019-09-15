@@ -10,7 +10,7 @@ float yPos = 0;
 PImage photo;
 
 void setup() {
-  size(1000, 1000);
+  size(1500,1500);
   photo = loadImage("spaceship.jpg");
   
   //position of ship
@@ -29,6 +29,22 @@ void draw() {
   if (keyPressed){
     if (key == 'a'){
       xPos--;
+    }
+  }
+
+ if (keyPressed){
+    if (key == 'w'){
+      yPos--;
+    }
+ }
+   if (keyPressed){
+  if (key == 'd'){
+      xPos++;
+    }
+  }
+ if (keyPressed){
+     if (key =='s'){
+     yPos++;
     }
   }
 }
