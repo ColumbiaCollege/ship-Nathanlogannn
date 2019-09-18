@@ -10,7 +10,7 @@ float yPos = 0;
 PImage photo;
 
 void setup() {
-  size(1500, 1500);
+  size(1500, 1000);
   photo = loadImage("spaceship.jpg");
 
 
@@ -19,20 +19,37 @@ void setup() {
   yPos = height/2;
 }
 
+
+
 void draw() {
+  //protection to keep ship on screen
+  if (xPos > 1500)
+  { 
+    xPos = 0;
+  }
+  if (xPos < 0) {
+    xPos = 1500;
+  }
+  if (yPos < 0) {
+    yPos = 1000;
+  }
+  if (yPos > 1000) {
+    yPos = 0;
+  }
   //space
   background(0);
 
   //stars
-  fill(255);
-  ellipse(100, 100, 10, 10);
+  //fill(255);
+  //ellipse(100, 100, 10, 10);
 
   //couldn't figure out how to make the stars stop generating
-  //for (int i = 0; i < 100; i++) {
-  //float r = random(50);
-  //stroke(r*5);
-  //ellipse(50*r, i*50, 10, 10);
-  //}
+  
+  for (int i = 0; i < 100; i++) {
+    float r = random(50);
+   // stroke(r*5);
+    ellipse(50*r, i*10, 10, 10);
+  }
 
   //spaceship
   image(photo, xPos, yPos);
@@ -65,10 +82,3 @@ void draw() {
     }
   }
 }
-
-
-
-
-//protection to keep ship on screen
-
-//I toiled for hours looking at the API and videos of others and youtube and I simply cannot figure out a way to make the bounce work at all
